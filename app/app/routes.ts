@@ -13,5 +13,10 @@ const pages = flattenMenu(menu).map((node) =>
 );
 
 export default [
-  layout("routes/layout.tsx", [index("routes/index.tsx"), ...pages]),
+  route("api/events", "routes/api.events.ts"),
+  layout("routes/layout.tsx", [
+    index("routes/index.tsx"),
+    route("stats", "routes/stats.tsx"),
+    ...pages,
+  ]),
 ] satisfies RouteConfig;

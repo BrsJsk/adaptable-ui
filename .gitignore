@@ -157,3 +157,9 @@ vite.config.ts.timestamp-*
 .nx/migrate-runs
 
 app/node_modules
+
+# API lowdb data (created on first run)
+api/data/*
+!api/data/.gitkeep
+api/.env
+app/.env

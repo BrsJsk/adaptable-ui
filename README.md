@@ -5,13 +5,11 @@ deeply nested side menu) based on user actions and analytics.
 
 ## Structure
 
-- `docker-compose.yml`: runs both apps
 - `api/`: Express.js API, data stored in a lowdb JSON file
 - `app/`: React frontend
 
 ## Run
 
-- Everything: `docker compose up --build`
 - Ports: app TODO, api TODO
 - Env: TODO (LLM API key and model name, if any)
 - Data file: TODO path, e.g. `api/db.json` (mount it as a volume so
