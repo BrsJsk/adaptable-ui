@@ -5,16 +5,13 @@ import {
   route,
 } from "@react-router/dev/routes";
 
+import { flattenMenu, menu } from "../src/config/menu";
+
+// Every page comes from the menu config; adding a node adds its route too.
+const pages = flattenMenu(menu).map((node) =>
+  route(node.path.slice(1), "routes/mock-page.tsx", { id: node.id }),
+);
+
 export default [
-  layout("routes/layout.tsx", [
-    index("routes/home.tsx"),
-    route("settings", "routes/settings/layout.tsx", [
-      index("routes/settings/general.tsx"),
-      route("profile", "routes/settings/profile.tsx"),
-      route("notifications", "routes/settings/notifications.tsx"),
-    ]),
-    route("analytics", "routes/analytics.tsx"),
-    route("event-logs", "routes/event-logs.tsx"),
-    route("about", "routes/about.tsx"),
-  ]),
+  layout("routes/layout.tsx", [index("routes/index.tsx"), ...pages]),
 ] satisfies RouteConfig;
